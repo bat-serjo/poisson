@@ -1,7 +1,11 @@
+
+import io
 import time
+import base64
 import asyncio
 import tornado
 import tornado.web
+import tornado.escape
 import tornado.concurrent
 
 
@@ -17,20 +21,17 @@ class MainHandler(tornado.web.RequestHandler):
 
     @tornado.concurrent.run_on_executor
     def post(self):
-        print("POST")
-        time.sleep(5)
-        self.write("POST")
+        req = tornado.escape.json_decode(self.request.body)
+        ret = poisson(base64.b64decode(req['data']).decode())
+        self.write(ret)
 
 
-def poisson():
-    import matplotlib.pyplot as plt
+def poisson(data: str):
     import numpy as np
     import pandas as pd
     import statsmodels.api as sm
 
-    url = "http://www.stat.columbia.edu/~gelman/arm/examples/police/frisk_with_noise.dat"
-    df = pd.read_csv(url, skiprows=6, delimiter=" ")
-    df.head()
+    df = pd.read_csv(io.StringIO(data), delimiter=" ")
 
     x = (df
          .groupby(['eth', 'precinct'])[["stops", "past.arrests"]]
@@ -51,12 +52,10 @@ def poisson():
         family=sm.families.Poisson(),
     )
     result_with_ethnicity = model_with_ethnicity.fit()
-    print(result_with_ethnicity.summary())
+    return str(result_with_ethnicity.summary())
 
 
 async def main():
-    poisson()
-
     app = tornado.web.Application([
         (r"/", MainHandler),
     ])
