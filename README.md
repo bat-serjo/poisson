@@ -1,3 +1,12 @@
+Install:
+```commandline
+python -m pim install -r requirements.txt
+```
+
+Run: 
+```commandline
+python main.py
+```
 Test:
 ```commandline
 curl -d '{"data": "c3RvcHMgcG9wIHBhc3QuYXJyZXN0cyBwcmVjaW5jdCBldGggY3JpbWUKNzUgMTcyMCAxOTEgMSAxIDEKMzYgMTcyMCA1NyAxIDEgMgo3NCAxNzIwIDU5OSAxIDEgMwoxNyAxNzIwIDEzMyAxIDEgNAozNyAxMzY4IDYyIDEgMiAxCjM5IDEzNjggMjcgMSAyIDIKMjMgMTM2OCAxNDkgMSAyIDMKMyAxMzY4IDU3IDEgMiA0CjI2IDIzODU0IDEzNSAxIDMgMQozMiAyMzg1NCAxNiAxIDMgMgoxMCAyMzg1NCAxMDcgMSAzIDMKMTMgMjM4NTQgMTIzIDEgMyA0CjczIDI1OTYgMjI3IDIgMSAxCg=="}' 127.0.0.1:8888
