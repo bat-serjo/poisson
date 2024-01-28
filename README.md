@@ -33,3 +33,12 @@ eth_2          0.4171      0.116      3.598      0.000       0.190       0.644
 eth_3         -0.0692      0.126     -0.548      0.584      -0.317       0.179
 ==============================================================================
 ```
+
+Run as service:
+ * edit poisson.service file and replace the </full/path/to/>main.py with the full path to the file
+ * copy poisson.service to /etc/systemd/system folder
+ * run ```sudo systemctl daemon-reload``` in order to force systemd to recognise the service
+ * ```sudo systemctl enable poisson.service``` to make the service run on startup
+ * now you can use systemd as usual to control the service like 
+   * ```sudo systemctl start poisson.service``` to start it
+   * ```sudo systemctl stop poisson.service``` to stop it etc...
