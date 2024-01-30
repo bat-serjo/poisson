@@ -9,29 +9,23 @@ python main.py
 ```
 Test:
 ```commandline
-curl -d '{"data": "c3RvcHMgcG9wIHBhc3QuYXJyZXN0cyBwcmVjaW5jdCBldGggY3JpbWUKNzUgMTcyMCAxOTEgMSAxIDEKMzYgMTcyMCA1NyAxIDEgMgo3NCAxNzIwIDU5OSAxIDEgMwoxNyAxNzIwIDEzMyAxIDEgNAozNyAxMzY4IDYyIDEgMiAxCjM5IDEzNjggMjcgMSAyIDIKMjMgMTM2OCAxNDkgMSAyIDMKMyAxMzY4IDU3IDEgMiA0CjI2IDIzODU0IDEzNSAxIDMgMQozMiAyMzg1NCAxNiAxIDMgMgoxMCAyMzg1NCAxMDcgMSAzIDMKMTMgMjM4NTQgMTIzIDEgMyA0CjczIDI1OTYgMjI3IDIgMSAxCg=="}' 127.0.0.1:8888
-```
-
-Result:
-```commandline
-                 Generalized Linear Model Regression Results                  
-==============================================================================
-Dep. Variable:                  stops   No. Observations:                    4
-Model:                            GLM   Df Residuals:                        1
-Model Family:                 Poisson   Df Model:                            2
-Link Function:                    Log   Scale:                          1.0000
-Method:                          IRLS   Log-Likelihood:                -17.913
-Date:                Sun, 28 Jan 2024   Deviance:                       9.8505
-Time:                        20:42:17   Pearson chi2:                     10.8
-No. Iterations:                     5   Pseudo R-squ. (CS):             0.9698
-Covariance Type:            nonrobust                                         
-==============================================================================
-                 coef    std err          z      P>|z|      [0.025      0.975]
-------------------------------------------------------------------------------
-intercept     -1.4791      0.060    -24.528      0.000      -1.597      -1.361
-eth_2          0.4171      0.116      3.598      0.000       0.190       0.644
-eth_3         -0.0692      0.126     -0.548      0.584      -0.317       0.179
-==============================================================================
+$ curl -d '{"data": "aWQsZGF0ZQoyNzk0ODk5OSwxMS8xLzIwMjMgMTE6MDUKMjc5NDg1ODEsMTEvMS8yMDIzIDExOjAxCjI3OTQ4NTkwLDExLzEvMjAyMyAxMTowMQoyNzk0OTY0OSwxMS8xLzIwMjMgMTE6MTIKMjc5NDk4MDAsMTEvMS8yMDIzIDExOjEzCjI3OTQ5MjYxLDExLzEvMjAyMyAxMTowOAoyNzk0OTA1NCwxMS8xLzIwMjMgMTE6MDUKMjc5NDk1OTYsMTEvMS8yMDIzIDExOjExCjI3OTQ5NTA4LDExLzEvMjAyMyAxMToxMAoyNzk0OTkxNiwxMS8xLzIwMjMgMTE6MTQKMjc5NDk2NjgsMTEvMS8yMDIzIDExOjEyCjI3OTQ4NDc5LDExLzEvMjAyMyAxMTowMAoyNzk1MDM4NSwxMS8xLzIwMjMgMTE6MTgKMjc5NDg2NDQsMTEvMS8yMDIzIDExOjAxCjI3OTUwODc3LDExLzEvMjAyMyAxMToyNQoyNzk0OTY2MSwxMS8xLzIwMjMgMTE6MTIKMjc5NTAxMDcsMTEvMS8yMDIzIDExOjE1CjI3OTQ5NzYxLDExLzEvMjAyMyAxMToxMwoyNzk0OTc2NywxMS8xLzIwMjMgMTE6MTMKMjc5NTA2ODMsMTEvMS8yMDIzIDExOjIyCjI3OTQ4ODk4LDExLzEvMjAyMyAxMTowMwoyNzk0ODU3NywxMS8xLzIwMjMgMTE6MDEKMjc5NDk5NTYsMTEvMS8yMDIzIDExOjE0CjI3OTQ5MzU5LDExLzEvMjAyMyAxMTowOQoyNzk1MDI3NywxMS8xLzIwMjMgMTE6MTcKMjc5NDg5MzUsMTEvMS8yMDIzIDExOjA0CjI3OTQ5NDczLDExLzEvMjAyMyAxMToxMAoyNzk0OTgxMiwxMS8xLzIwMjMgMTE6MTMKMjc5NTE0MDEsMTEvMS8yMDIzIDExOjMwCjI3OTUwNDU3LDExLzEvMjAyMyAxMToxOQoyNzk0OTYzOSwxMS8xLzIwMjMgMTE6MTIKMjc5NDk3MjksMTEvMS8yMDIzIDExOjEzCjI3OTUwMzI1LDExLzEvMjAyMyAxMToxOAoyNzk1MDczOSwxMS8xLzIwMjMgMTE6MjIKMjc5NTEyMjksMTEvMS8yMDIzIDExOjI5CjI3OTUwOTE4LDExLzEvMjAyMyAxMToyNQoyNzk0OTIyMCwxMS8xLzIwMjMgMTE6MDcKMjc5NTEyODMsMTEvMS8yMDIzIDExOjI5CjI3OTUxODYxLDExLzEvMjAyMyAxMTozNAoyNzk0OTYyMiwxMS8xLzIwMjMgMTE6MTEKMjc5NTAxNjUsMTEvMS8yMDIzIDExOjE2CjI3OTUxNTQwLDExLzEvMjAyMyAxMTozMQoyNzk1MDQ4NiwxMS8xLzIwMjMgMTE6MTkKMjc5NTE5MDEsMTEvMS8yMDIzIDExOjM1CjI3OTUwNjI0LDExLzEvMjAyMyAxMToyMQoyNzk1MDg0MSwxMS8xLzIwMjMgMTE6MjQKMjc5NTE2OTIsMTEvMS8yMDIzIDExOjMyCjI3OTUyOTMyLDExLzEvMjAyMyAxMTo0NQoyNzk1MTU3MywxMS8xLzIwMjMgMTE6MzEKMjc5NTE4MzcsMTEvMS8yMDIzIDExOjM0CjI3OTUwMzI0LDExLzEvMjAyMyAxMToxOAoyNzk1MTE0NSwxMS8xLzIwMjMgMTE6MjgKMjc5NTE1NjcsMTEvMS8yMDIzIDExOjMxCjI3OTUyNTQ5LDExLzEvMjAyMyAxMTo0MQoyNzk1MzE1MywxMS8xLzIwMjMgMTE6NDgKMjc5NTMyMDMsMTEvMS8yMDIzIDExOjQ4CjI3OTUxNDA5LDExLzEvMjAyMyAxMTozMAoyNzk1Mjg5MSwxMS8xLzIwMjMgMTE6NDUKMjc5NTI4NDUsMTEvMS8yMDIzIDExOjQ0CjI3OTUzMDI3LDExLzEvMjAyMyAxMTo0NgoyNzk1MzMzMCwxMS8xLzIwMjMgMTE6NDkKMjc5NTMzMzUsMTEvMS8yMDIzIDExOjQ5CjI3OTUyNzE0LDExLzEvMjAyMyAxMTo0MwoyNzk1MjQ5MCwxMS8xLzIwMjMgMTE6NDEKMjc5NTIxODEsMTEvMS8yMDIzIDExOjM3CjI3OTUzNzg2LDExLzEvMjAyMyAxMTo1NAoyNzk1Mzc4MiwxMS8xLzIwMjMgMTE6NTQKMjc5NTM3OTQsMTEvMS8yMDIzIDExOjU0CjI3OTUzODgwLDExLzEvMjAyMyAxMTo1NQoyNzk1MzI4MSwxMS8xLzIwMjMgMTE6NDkKMjc5NTI4NjgsMTEvMS8yMDIzIDExOjQ1CjI3OTUzODA3LDExLzEvMjAyMyAxMTo1NAoyNzk1Mzk1MywxMS8xLzIwMjMgMTE6NTYKMjc5NTI5MjgsMTEvMS8yMDIzIDExOjQ1CjI3OTUzNTE2LDExLzEvMjAyMyAxMTo1MgoyNzk1NDg1NSwxMS8xLzIwMjMgMTI6MDYKMjc5NTI4MDMsMTEvMS8yMDIzIDExOjQ0CjI3OTUyNzkwLDExLzEvMjAyMyAxMTo0NAoyNzk1NDgxMSwxMS8xLzIwMjMgMTI6MDYK"}' 127.0.0.1:8888 | base64 -d
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  4020  100  1364  100  2656  55728   105k --:--:-- --:--:-- --:--:--  157k
+                             mean      mean_se  mean_ci_lower  mean_ci_upper
+date                                                                        
+2023-11-01 11:05:00  2.794902e+07   972.088955   2.794711e+07   2.795092e+07
+2023-11-01 11:01:00  2.794863e+07  1088.285526   2.794650e+07   2.795076e+07
+2023-11-01 11:01:00  2.794863e+07  1088.285526   2.794650e+07   2.795076e+07
+2023-11-01 11:12:00  2.794970e+07   790.561524   2.794815e+07   2.795125e+07
+2023-11-01 11:13:00  2.794980e+07   767.830514   2.794829e+07   2.795130e+07
+...                           ...          ...            ...            ...
+2023-11-01 11:52:00  2.795359e+07  1102.033851   2.795143e+07   2.795575e+07
+2023-11-01 12:06:00  2.795483e+07  3738.638322   2.794751e+07   2.796216e+07
+2023-11-01 11:44:00  2.795281e+07   875.926234   2.795109e+07   2.795453e+07
+2023-11-01 11:44:00  2.795281e+07   875.926234   2.795109e+07   2.795453e+07
+2023-11-01 12:06:00  2.795483e+07  3738.638322   2.794751e+07   2.796216e+07
 ```
 
 Run as service:
